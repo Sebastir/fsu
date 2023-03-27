@@ -1,0 +1,16 @@
+Introduction
+The internet has been around since the 80s
+The web has been around since the the 90s
+To user the web you need:
+- Web Servers, to host resources like documents
+- URL that identify those resources on that web Servers
+- Protocols that can be used to transfer resources (HTTP CURL)
+- Web Browser, to view and use those resources
+
+HTML
+  Is the basic markup for the web
+  Evolving towards more interactive elements
+
+CSS
+  Styling mechanism for the web
+  
