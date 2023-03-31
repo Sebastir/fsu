@@ -11,6 +11,35 @@ HTML
   Is the basic markup for the web
   Evolving towards more interactive elements
   elements - tags - attributes
-
+Example of using subject with space (%20) words
+  href="mailto:example@bethanyspieshop.com?subject=Interested%20in%20pies
+  data- attributes are special aatributes that you can add to html tag, allows you to add custom info
+    <button data-order="cherry-pie">Order</button>
 CSS
   Styling mechanism for the web
+CSS Selectors
+  when assigning a specific child.
+      .columns > div:nth-of-type(2)
+Media Queries
+  Design Start with mobile devices first
+  meta viewport --> <meta name="viewport" content='width=device-width, initial-scale=1'/>
+  create class for mobile, desktop, print and hide those that are not needed using display: none
+  Syntax
+    @media print {
+      .mobile, .desktop {
+        display: none
+      }
+      .print {
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .mobile {
+        display: none;
+      }
+      .desktop {
+        display: block;
+      }
+    }
+Browser Support
