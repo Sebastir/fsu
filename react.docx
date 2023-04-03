@@ -1,0 +1,141 @@
+React
+  Concepts
+  Is a JS Library. Which is considered small and not a comple suite of solution
+Core Functionality --> Building uses interfaces
+React is declarative for dynamic content--> we describe user interfaceds what we want, and react take care of the how
+
+Frameworks --> many smart design decision are already made
+              are not flexible,
+               requires specific Syntax,
+                large and full of feature,
+Library -->  Write programs that do one thing and do it well
+
+Pro of React
+  Virtual DOM (not need to deal with the DOM API)
+  Just JS skills
+  flexibility to transfer skillset to other channels (mobile, VR, web apps, etc)
+  Production heavily tested (FB supported)
+  Declarative language (model UI and state)
+
+  Basic Concepts
+    Components
+      - Must be written with UpperCase first letter
+      - functions or Class Component
+      - Props similar to HTML list of attribute (explicit input / output). Props represents fixed values (immutable)
+      - Props can be used to pass data and functions (behaviour)
+      - State: React uses state to auto-reflect changes in the browser (internal input) Components can only change their internal state. within a component state objects can be changed
+      - reusable and composable
+      - Where to locate State in the source Code
+          Down in the tree as close as possible to the children who need to needs to access values on the state
+      - can manage a private state
+      - React hooks
+        Aligned a component into a state.
+        An example is useState
+    Reactive updates
+    Virtual views in memory
+      - Tree reconciliation (Virtual DOM), in memory comparison before
+
+ReactDOM Library
+  - ReactDOM.render(component with self-closing tag,DOM Element in the browser to display )
+  - JSX is convered into React API by Babel (compiler)
+  - JSX makes easier to maintain React Code
+
+useState() functions
+  - state object(getter)
+  - updater function (setter)
+  - const [currentStateValue, functionToSetNewStateValue] = useState(initialStateValue)
+
+  Concept:
+  Array Destructoring
+    feature is use to capture 2 variables in one line
+
+Challenges
+  // Challenge Start the button with 5
+  // Double the button's label on each click
+  Option A
+    function Button() {
+      const [counter, setCounter] = useState(5);
+      const handleClick = () => setCounter(counter+1)
+      return (
+        <button onClick={handleClick}>
+        {counter}
+        </button>
+      );
+    }
+
+    ReactDOM.render(
+      <Button />,
+      document.getElementById('mountNode'),
+    );
+
+  Option B
+// Challenge Start the button with 5
+// Double the button's label on each click
+
+function Button(props) {
+  // const [counter, setCounter] = useState(5)
+//  const handleClick = () => setCounter(counter+1)
+  return (
+  <button onClick={props.onClickFunction}>
+    +1
+  </button>
+  )
+}
+
+function Display(props) {
+  return (
+  <div>{props.message}</div>
+  );
+}
+
+function App() {
+    const [counter, setCounter] = useState(5)
+    const incrementCounter = () => setCounter(counter+counter)
+  return (
+    <div>
+      <Button onClickFunction={incrementCounter} />
+      <Display message={counter}/>
+      </div>
+  )
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('mountNode'),
+);
+
+// Challenge Start the button with +1, +5, +10, +100
+function Button(props) {
+  // const [counter, setCounter] = useState(5)
+  const handleClick = () => props.onClickFunction(props.increment);
+  return (
+  <button onClick={handleClick}>
+    +{props.increment}
+  </button>
+  )
+}
+
+function Display(props) {
+  return (
+  <div>{props.message}</div>
+  );
+}
+
+function App() {
+    const [counter, setCounter] = useState(0)
+    const incrementCounter = (incrementValue) => setCounter(counter+incrementValue)
+  return (
+    <div>
+      <Button onClickFunction={incrementCounter} increment={1} />
+      <Button onClickFunction={incrementCounter} increment={5}/>
+      <Button onClickFunction={incrementCounter} increment={10}/>
+      <Button onClickFunction={incrementCounter} increment={100}/>
+      <Display message={counter}/>
+      </div>
+  )
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('mountNode'),
+);
