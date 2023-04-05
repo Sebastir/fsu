@@ -20,7 +20,12 @@ Pro of React
   Basic Concepts
     Components
       - Must be written with UpperCase first letter
+      - Every component has it own sets of responsability
       - functions or Class Component
+          Each Class component must have a render function return the Virtual DOM description of the component
+          Components needs to avoid reading global variables
+          One class needs to extend from React.Component (object)
+          Props and States belong to an instance of class components.
       - Props similar to HTML list of attribute (explicit input / output). Props represents fixed values (immutable)
       - Props can be used to pass data and functions (behaviour)
       - State: React uses state to auto-reflect changes in the browser (internal input) Components can only change their internal state. within a component state objects can be changed
@@ -48,6 +53,9 @@ useState() functions
   Concept:
   Array Destructoring
     feature is use to capture 2 variables in one line
+
+  Styling Components
+    JavaScript styles are excellent for conditional styling
 
 Challenges
   // Challenge Start the button with 5
@@ -139,3 +147,9 @@ ReactDOM.render(
   <App />,
   document.getElementById('mountNode'),
 );
+
+Project Github Card App
+
+When working with react you first need to decide how many components to use and what each will describe
+top-down approach is best when you have a clear picture of what you want to Building
+down-top approach, starting from more granual part when is unknown the final product (rename / delete component is pretty common in this scenario)
